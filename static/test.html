@@ -1,0 +1,41 @@
+ <html>                                                                  
+ <head>                                                                  
+ <script type="text/javascript" src="/js/lib/jquery.js"></script>          
+ <script type="text/javascript" src="/js/lib/templates.js"></script>          
+ <script type="text/javascript" src="/js/secretary.js"></script>
+ <script type="text/javascript" src="/js/builder.js"></script>
+ <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+ 
+ <script type="text/javascript">   
+    function gup( name ){
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+    var regexS = "[\\?&]"+name+"=([^&#]*)";  
+    var regex = new RegExp( regexS );  
+    var results = regex.exec( window.location.href ); 
+    if( results == null )    return "";  
+    else    return results[1];
+   }
+    /*
+    This method is for interacting with the API as a normal HTML page. 
+    There is nothing that says you can't dynamically figure out query params and docs to grab
+    from the user's actions dynamically and just program a normal style web page. 
+    
+    */
+
+    $(document).ready(function() {
+	  $("#zork").text("zas");
+	  $.ajax({
+	    url:"/~/3/_p/repliesTo/_o/forum1/doc0/~",
+	    dataType:"json"
+	  });
+	//
+   });
+
+</script>                                                               
+ </head>                                                                 
+ <body>                                                                  
+   <div id="zork">
+   </div>
+ </body>                                                                 
+ </html>

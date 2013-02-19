@@ -1,0 +1,14 @@
+{
+	   "data":[
+	     {"id":"domain", "url":"/"},
+	     {"id":"triple", "url":"/~/3/"},
+	     {"id":"meta", "url":"/_/meta/"},
+	     {"id":"widgets", "url":"/plugins/"},
+	     {"id":"tmlpjson", "url":"/plugins/"}
+	   ],
+	   "templates":{
+	      "url":"/plugins/",
+	      "suffix":".tmpl"
+	   }
+}
+	

@@ -1,0 +1,50 @@
+ <html>                                                                  
+ <head>                                                                  
+ <script type="text/javascript" src="/js/lib/jquery.js"></script>          
+ <script type="text/javascript" src="/js/lib/templates.js"></script>          
+ <script type="text/javascript" src="/js/secretary.js"></script>
+ <script type="text/javascript" src="/js/builder.js"></script>
+ <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+ 
+ <script type="text/javascript">   
+ 
+    /*
+    This file is dynamically returned when tmpl provides a templates
+    note that it is unique but shows up at various URIs
+    it's unclear if editing this file is a good idea vs just adding logic at the plugin level
+    TODO specify a default template on the server, return json to application/json or ?json=true
+    TODO factor out common bits
+    
+    */
+    function gup( name ){
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+    var regexS = "[\\?&]"+name+"=([^&#]*)";  
+    var regex = new RegExp( regexS );  
+    var results = regex.exec( window.location.href ); 
+    if( results == null )    return "";  
+    else    return results[1];
+ }
+
+    $(document).ready(function() {
+	bootstrap(function(serverJson){
+	  var srv=serverJson;
+	  var tmpl =gup("tmpl");
+	  var sPageURL = window.location.pathname;	
+	  var builder = Builder.construct("base");
+	  builder.init(srv);
+	  builder.loadWidget(tmpl);
+	  builder.renderWidget(tmpl,sPageURL, $("#templateHolder"));
+	});
+	
+	//
+   });
+
+</script>                                                               
+ </head>                                                                 
+ <body>                                                                  
+   <div id="templateHolder">
+   </div>
+
+   </body>                                                                 
+ </html>

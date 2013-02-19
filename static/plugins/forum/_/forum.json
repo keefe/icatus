@@ -1,0 +1,9 @@
+{
+  "id":"forum",
+  "singleton":"Forum",
+  "relations":[{
+    "id":"triple",
+    "uriTemplate":"/~/3/_p/repliesTo/_o/:node:/~",
+    "varString":":node:"
+  }]
+}
